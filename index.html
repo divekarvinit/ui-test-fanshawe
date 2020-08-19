@@ -11,6 +11,65 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+      <style type="text/css">
+    .fullscreen-bg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -100;
+    }
+
+    .fullscreen-bg__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        height: 300%;
+        top: -100%;
+      }
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+      width: 300%;
+      left: -100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .fullscreen-bg {
+           background: url('../img/videoframe.jpg') center center / cover no-repeat;
+      }
+
+      .fullscreen-bg__video {
+           display: none;
+      }
+    }
+
+        .temperature-container{
+          position: absolute;
+          top: 20px;
+          left: 30px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background: transparent;
+          width: 200px;
+          text-align: center;
+          padding: 20px 0px;
+        }
+        .temp-value {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 50px; !important;
+        }
+  </style>
   </head>
 
   <body>
@@ -22,22 +81,6 @@
     </div>
 
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container">
-        
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <img class="img-rectangle" src="img/azure-portal.png" alt="Azure App Service Web Apps" height="140">
-          <h2>Azure App Service Web Apps</h2>
-          <p>App Service Web Apps is a fully managed compute platform that is optimized for hosting websites and web applications. This platform-as-a-service (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.</p>
-        </div>
-          <div class="col-xs-12 col-sm-6">
-              <img class="img-rectangle" src="img/cdn.png" alt="CDN" height="140">
-              <h2>Azure Content Delivery Network (CDN)</h2>
-              <p>The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world.</p>
-          </div>
-      </div>
-    </div>
     <div class="fullscreen-bg"> 
         <video poster="img/videoframe.jpg" autoplay muted loop class="fullscreen-bg__video">
                 <source src="img/bkgTest.mp4" type="video/mp4">
